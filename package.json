@@ -1,0 +1,16 @@
+{
+  "name": "ampgrpcjs",
+  "version": "0.0.1",
+  "description": "js library to call grpc amp services",
+  "main": "index.js",
+  "dependencies": {
+    "grpc": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js",
+    "start": "node index.js"
+  },
+  "author": "F. Reignat <freignat@axway.com>",
+  "license": "ISC"
+}
