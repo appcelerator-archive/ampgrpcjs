@@ -4,10 +4,13 @@ const grpc = require('grpc');
 const GOPATH = process.env.GOPATH
 const ampdir = GOPATH + "/src/github.com/appcelerator/amp/api/rpc"
 
-function getService(serviceName) {
+function getService(amplifierAddr, protoFilePath, serviceName) {
   var lname = serviceName.toLowerCase()
-  var proto = grpc.load(ampdir+"/"+lname+"/"+lname+".proto")
-  return new proto[lname][serviceName]('localhost:8080', grpc.credentials.createInsecure())
+  if (protofilePath == "") {
+    protofilePath= ampDir+"/"+lname+"/"+lname+".proto"
+  }
+  var proto = grpc.load(protofilePath)
+  return new proto[lname][serviceName](amplifierAddr+":8080", grpc.credentials.createInsecure())
 }
 
 module.exports = {
